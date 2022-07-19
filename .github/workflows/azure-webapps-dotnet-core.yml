@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  publish-path: './pub'
+  publish-path: 'publishfiles'
 
 jobs:
   build:
@@ -27,6 +27,6 @@ jobs:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v3.0.0
         with:
-          name: apppackagefiles
+          name: webapppackage
           path: ${{ env.publish-path }}
         
