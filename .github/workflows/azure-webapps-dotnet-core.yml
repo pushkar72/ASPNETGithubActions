@@ -25,7 +25,7 @@ jobs:
         run: dotnet publish -c Release -o ${{ env.publish-path }}
       
       - name: Download a Build Artifact
-        uses: actions/download-artifact@v3.0.0
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: webapppackage
           path: ${{ env.publish-path }}
