@@ -5,14 +5,11 @@ on:
     branches:
       - dev
 
-
-
 jobs:
   build:
     name: DotNet Build
     runs-on: ubuntu-20.04
     steps:
-    # setup dotnet
       - uses: action/checkout@dev
       - name: Setup Dotnet Environment
         uses: actions/setup-dotnet@2.1.0
