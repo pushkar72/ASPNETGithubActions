@@ -1,0 +1,22 @@
+name: OHI CI-CD to Azure App
+
+on:
+  push:
+    branches:
+      - dev
+
+
+
+jobs:
+  build:
+    name: DotNet Build
+    runs-on: ubuntu-20.04
+    steps:
+    # setup dotnet
+      - uses: action/checkout@dev
+      - name: Setup Dotnet Environment
+      - uses: actions/setup-dotnet@2.1.0
+        with:
+          dotnet-version: 3.1.103
+      - name: Dotnet Publish
+        run: dotnet publish -c Release -o .pub
