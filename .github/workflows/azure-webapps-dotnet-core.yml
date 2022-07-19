@@ -6,7 +6,8 @@ on:
       - dev
       - main
 
-
+env:
+  publish-path: './pub'
 
 jobs:
   build:
@@ -21,4 +22,11 @@ jobs:
           dotnet-version: 3.1.103
           
       - name: Dotnet Publish
-        run: dotnet publish -c Release -o .pub
+        run: dotnet publish -c Release -o {{ env.publish-path }}
+      
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v3.0.0
+        with:
+          name: apppackagefiles
+          path: {{ env.publish-path }}
+        
